@@ -23,7 +23,7 @@ class TransDetails extends StatefulWidget {
 
 class _TransDetailsState extends State<TransDetails> {
   final List months = [
-    "jan",        
+    "jan",
     "Feb",
     "Mar",
     "Apr",
@@ -40,15 +40,14 @@ class _TransDetailsState extends State<TransDetails> {
   @override
   Widget build(BuildContext context) {
     TransactionDb.instance.refresh();
-    return 
-    ValueListenableBuilder(
+    return ValueListenableBuilder(
         valueListenable: TransactionDb.instance.TransactionListNotifier,
         builder: (BuildContext ctx, List<TransactionModel> newList, _) {
           return newList.isEmpty
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:const [
-                    LenghtNullview(), 
+                  children: const [
+                    LenghtNullview(),
                   ],
                 )
               : ListView.separated(
@@ -77,15 +76,16 @@ class _TransDetailsState extends State<TransDetails> {
                                     onPressed: () {
                                       TransactionDb.instance
                                           .deleteTransaction(_value.id!);
-                                     // ignore: deprecated_member_use
-                                       ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(
-                                              duration: Duration(seconds: 2),
-                                              backgroundColor: Colors.red,
-                                              content: Text('Item Deleted'),
-                                              ),
-                                              );
-                                            Navigator.of(context).pop();
+                                      // ignore: deprecated_member_use
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          duration: Duration(seconds: 2),
+                                          backgroundColor: Colors.red,
+                                          content: Text('Item Deleted'),
+                                        ),
+                                      );
+                                      Navigator.of(context).pop();
                                     },
                                     child: const Text("Ok"),
                                   ),
@@ -110,7 +110,7 @@ class _TransDetailsState extends State<TransDetails> {
                               );
                             }));
                             // ignore: deprecated_member_use
-                          ScaffoldMessenger.of(context).showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Item Updated')));
                           },
                           icon: Icons.edit,
@@ -200,20 +200,18 @@ class _TransDetailsState extends State<TransDetails> {
                                   height: 6.h,
                                   width: 8.h,
                                   decoration: BoxDecoration(
-                                    color:const Color.fromARGB(255, 231, 229, 229),
+                                    color: const Color.fromARGB(
+                                        255, 231, 229, 229),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Column(
                                     children: [
-                                      Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 5.0),
-                                          child: Text(
-                                            parseDAte(_value.date),
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 16,
-                                            ),
-                                          ))
+                                      Text(
+                                        parseDAte(_value.date),
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 12,
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -293,8 +291,4 @@ class _TransDetailsState extends State<TransDetails> {
   String popUpdateDate(DateTime date) {
     return '${date.day}/${date.month}/${date.year}';
   }
-
-  
-
 }
-

@@ -135,7 +135,8 @@ class _IncomeScreenState extends State<IncomeScreen>
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   // height: 50,
-                  width: MediaQuery.of(context).size.height,
+
+                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(10),
@@ -163,7 +164,7 @@ class _IncomeScreenState extends State<IncomeScreen>
                 ),
               ),
               Expanded(
-                  child: TabBarView(controller: tabcontroller, children:const [
+                  child: TabBarView(controller: tabcontroller, children: const [
                 Incomescreen(),
                 Expense(),
               ]))

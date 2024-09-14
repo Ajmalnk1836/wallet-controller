@@ -179,7 +179,7 @@ class ExpenseDetails extends StatelessWidget {
                                         child: Text(
                                           ParseDate(category.date),
                                           style: GoogleFonts.montserrat(
-                                            fontSize: 16,
+                                            fontSize: 12,
                                           ),
                                         ))
                                   ],

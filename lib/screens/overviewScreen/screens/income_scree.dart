@@ -11,7 +11,7 @@ import 'package:walletcontroller/screens/overviewScreen/overview_screen.dart';
 import '../../../db/peichart/peichart.dart';
 
 class Incomescreen extends StatefulWidget {
- const Incomescreen({Key? key}) : super(key: key);
+  const Incomescreen({Key? key}) : super(key: key);
 
   @override
   State<Incomescreen> createState() => _IncomescreenState();
@@ -22,13 +22,13 @@ class _IncomescreenState extends State<Incomescreen> {
     Colors.greenAccent,
   ];
   //late List<TransactionModel> _getchartData;
-  late TooltipBehavior _tooltipBehavior; 
- 
+  late TooltipBehavior _tooltipBehavior;
+
   @override
-  void initState() { 
+  void initState() {
     //_getchartData = getChartData();
     _tooltipBehavior = TooltipBehavior(enable: true);
-    super.initState();  
+    super.initState();
   }
 
   @override
@@ -70,8 +70,6 @@ class _IncomescreenState extends State<Incomescreen> {
                             : dropdownvalue == "This month"
                                 ? _getThismonthList
                                 : null,
-
-              
                 xValueMapper: (Chart data, _) => data.category,
                 yValueMapper: (Chart data, _) => data.amount,
                 dataLabelSettings: const DataLabelSettings(isVisible: true),
@@ -83,11 +81,10 @@ class _IncomescreenState extends State<Incomescreen> {
         const SizedBox(
           height: 20,
         ),
-        Expanded(child: IncomeDetails()), 
+        Expanded(child: IncomeDetails()),
       ],
     );
   }
-
 }
 
 final today = DateFormat().add_yMMMMd().format(DateTime.now());
@@ -185,7 +182,7 @@ class IncomeDetails extends StatelessWidget {
                                 child: Text(
                                   ParseDAte(category.date),
                                   style: GoogleFonts.montserrat(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ))
                           ],
@@ -253,4 +250,3 @@ class IncomeDetails extends StatelessWidget {
     return '${date.day}\n${months[date.month - 1]}';
   }
 }
- 
